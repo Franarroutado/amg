@@ -21,6 +21,9 @@
 		<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 		<meta name="author" content="Muhammad Usman">
 
+		<!-- TODO se mueve del footer.php. Se debería poder inyectar el código al footer. cuando se pueda hacer mover este js al footer.php  -->
+		<?php echo \Theme::instance()->asset->js('jquery-1.7.2.min.js'); ?>
+
 		<!-- The styles -->
 		<?php echo \Theme::instance()->asset->css('bootstrap-cerulean.css'); ?>
 		<style type="text/css">

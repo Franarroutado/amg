@@ -5,7 +5,7 @@
 <?php echo \Theme::instance()->asset->js(
 	array(
 		// jQuery
-		'jquery-1.7.2.min.js',
+		//'jquery-1.7.2.min.js', TODO se añade al principio de la página (layout.php) para que se pueda ejectuar el código cliente correctamente
 		//jQuery UI
 		'jquery-ui-1.8.21.custom.min.js',
 		//transition / effect library
