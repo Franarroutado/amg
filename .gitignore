@@ -1,0 +1,15 @@
+# Evitamos que se registren los siguientes ficheros
+*.TODO
+*.org
+*.zip
+*.md
+oil
+build.xml
+usmanhalalit-charisma-d29440e/*
+# Elementos ignorados propios de fuelphp
+fuel/app/logs/*/*/*
+fuel/app/cache/*/*
+fuel/core/*
+fuel/packages/*
+docs/*
+*/.htaccess
