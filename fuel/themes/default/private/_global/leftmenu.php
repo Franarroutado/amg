@@ -10,8 +10,18 @@
 		<ul class="nav nav-tabs nav-stacked main-menu">
 			<li class="nav-header hidden-tablet"><?php echo __('privado.leftmenu.gestor'); ?></li>
 			<li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-			<li><a class="ajax-link" href="rexistros"><i class="icon-eye-open"></i><span class="hidden-tablet"> <?php echo __('privado.leftmenu.registros'); ?></span></a></li>
-			<li><a class="ajax-link" href="autores"><i class="icon-edit"></i><span class="hidden-tablet"> <?php echo __('privado.leftmenu.autores'); ?></span></a></li>
+			<li>
+				<?php echo Html::anchor('admin/rexistros',
+					'<i class="icon-eye-open"></i><span class="hidden-tablet"> '.__('privado.leftmenu.registros').'</span>',
+					array('class' => 'ajax-link',)
+				); ?>
+			</li>
+			<li>
+				<?php echo Html::anchor('admin/autores',
+					'<i class="icon-edit"></i><span class="hidden-tablet"> '.__('privado.leftmenu.autores').'</span>',
+					array('class' => 'ajax-link',)
+				); ?>
+			</li>
 			<li><a class="ajax-link" href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Charts</span></a></li>
 			<li><a class="ajax-link" href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 			<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
