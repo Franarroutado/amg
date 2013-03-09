@@ -15,7 +15,7 @@ nbproject/
 .idea
 
 /fuel/app/config/crypt.php
-
+public/assets/default/js/jquery-validation-1.11.0/*
 *.TODO
 *.org
 *.zip
@@ -24,6 +24,7 @@ oil
 build.xml
 usmanhalalit-charisma-d29440e/*
 # Elementos ignorados propios de fuelphp
+
 fuel/app/logs/*/*/*
 fuel/app/cache/*
 fuel/core/*
