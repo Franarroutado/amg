@@ -6,7 +6,7 @@
 
 		'site'							=> 'amgsite/index',
 
-		'admin'							=> 'amgadmin/amgadmin/login/login',
+		'admin'							=> 'amgadmin/amgadmin/main/dashboard',
 		'admin/login'					=> 'amgadmin/amgadmin/login/login',
 		'admin/logout'					=> 'amgadmin/amgadmin/login/logout',
 		'admin/dashboard'				=> 'amgadmin/amgadmin/main/dashboard',
