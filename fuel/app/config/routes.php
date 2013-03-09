@@ -10,6 +10,7 @@
 		'admin/login'					=> 'amgadmin/amgadmin/login/login',
 		'admin/logout'					=> 'amgadmin/amgadmin/login/logout',
 		'admin/dashboard'				=> 'amgadmin/amgadmin/main/dashboard',
+		
 		'admin/rexistros'				=> 'amgadmin/amgadmin/partituras/index',
 		'admin/rexistros/index'			=> 'amgadmin/amgadmin/partituras/index',
 		'admin/rexistros/view/(:any)'	=> 'amgadmin/amgadmin/partituras/view/$1',

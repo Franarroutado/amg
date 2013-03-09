@@ -44,12 +44,10 @@ class Controller_AMGAdmin_Login extends \Controller
 		// Run validation
 		if($val->run())
 		{
-			if(\Auth::instance()->login($val->validated('username'), $val->validated('password'))
-)			{
-				\Session::set_flash('success', 'Sei stato loggato correctamente al sistema.');
+			if(\Auth::instance()->login($val->validated('username'), $val->validated('password')))			
+			{
+				\Session::set_flash('success', __('privado.comunes.msg_logingOk'));
 				\Response::redirect('admin/dashboard');
-				//\Session::set_flash('error', 'Sei stato loggato correctamente al sistema.');
-
 			}
 			else
 			{
@@ -70,7 +68,7 @@ class Controller_AMGAdmin_Login extends \Controller
 	public function action_logout()
 	{
 		\Auth::instance()->logout();
-		\Session::set_flash('success', 'Ti sei disconnesso con successo.');
+		\Session::set_flash('success', __('privado.comunes.msg_logoutOk'));
 		\Response::redirect('admin/login');
 	}
 

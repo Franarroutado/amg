@@ -28,6 +28,8 @@ return array(
 			'msg_btnEditar'		=> 'Editar este rexistro',
 			'msg_btnCancelar'   => 'Cancela esta acción e volve atrás',
 			'msg_btnGuardar'	=> 'Gardar os cambios do rexistro',
+			'msg_logingOk'		=> 'Está logado correctamente',
+			'msg_logoutOk' 		=> 'Se ha deslogado correctamente',
 
 		),
 
