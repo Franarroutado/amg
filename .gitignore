@@ -1,4 +1,21 @@
 # Evitamos que se registren los siguientes ficheros
+*~
+*.bak
+Thumbs.db
+desktop.ini
+.DS_Store
+.buildpath
+.project
+.settings
+*.tmproj
+fuel/app/logs/*/*/*
+fuel/app/cache/*/*
+build
+nbproject/
+.idea
+
+/fuel/app/config/crypt.php
+
 *.TODO
 *.org
 *.zip
@@ -8,7 +25,7 @@ build.xml
 usmanhalalit-charisma-d29440e/*
 # Elementos ignorados propios de fuelphp
 fuel/app/logs/*/*/*
-fuel/app/cache/*/*
+fuel/app/cache/*
 fuel/core/*
 fuel/packages/*
 docs/*

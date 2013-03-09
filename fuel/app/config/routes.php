@@ -18,6 +18,7 @@
 
 		'admin/autores'					=> 'amgadmin/amgadmin/autores/index',
 		'admin/autores/index'			=> 'amgadmin/amgadmin/autores/index',
+		'admin/autores/create'			=> 'amgadmin/amgadmin/autores/create',
 		'admin/autores/view/(:any)'		=> 'amgadmin/amgadmin/autores/view/$1',
 		'admin/autores/edit/(:any)'		=> 'amgadmin/amgadmin/autores/edit/$1',
 

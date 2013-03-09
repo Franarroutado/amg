@@ -32,13 +32,16 @@ class Model_Autore extends Model
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		),
+		'AMGAdmin\Observer_Miseventos',
 	);
 
 	public static function validate($factory)
 	{
-		$val = Validation::forge($factory);
+		$val = \Validation::forge($factory);
+		
 		$val->add_field('nombre', 'Nombre', 'required|max_length[50]');
 		$val->add_field('user_id', 'User Id', 'required|valid_string[numeric]');
+		$val->set_message('required|max_length[50]', 'You have to fill in your :label so you can proceed');
 
 		return $val;
 	}

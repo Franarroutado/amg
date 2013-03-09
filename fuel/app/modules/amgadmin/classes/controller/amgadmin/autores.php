@@ -34,112 +34,94 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 		    'contents' => $contents,
     	));
 
+		\Log::warning('I was notified of the event  on a Model of class ');
+
 		\Theme::instance()->set_partial('content', $view);
 	}
 
 	public function action_create()
 	{
-		if (Input::method() == 'POST')
+		if (\Input::method() == 'POST')
 		{
 			$val = Model_Autore::validate('create');
 			
 			if ($val->run())
 			{
 				$autore = Model_Autore::forge(array(
-					'nombre' => Input::post('nombre'),
-					'user_id' => Input::post('user_id'),
+					'nombre' => \Input::post('nombre'),
+					'user_id' => \Input::post('user_id'),
 					'vo' => 0,
 				));
 
 				if ($autore and $autore->save())
 				{
-					Session::set_flash('success', 'Added autore #'.$autore->id.'.');
-
-					Response::redirect('autores');
+					\Session::set_flash('success', 'Added autore #'.$autore->id.'.');
+					\Response::redirect('admin/autores');
 				}
 
 				else
 				{
-					Session::set_flash('error', 'Could not save autore.');
+					\Session::set_flash('error', 'Could not save autore.');
 				}
 			}
 			else
 			{
-				Session::set_flash('error', $val->error());
+				\Session::set_flash('error', $val->error());
 			}
-		}
+		} 
 
-		// Preparamos el restro de migas
-		$rastro = array(
-			'item1' => array(
-				'nombre' => 'Autores',
-				'ruta'   => 'autores'),
-			'item2' => array(
-				'nombre' => 'Nuevo Autor',
-				'ruta'   => ''),
-		);
+		$view = \Theme::instance()->view('private/amgadmin/autores/create');
 
-		$this->template->title = "Autores";
-		$this->template->breadcrumb = $rastro;
-		$this->template->content = View::forge('autores/create');
-
+		\Theme::instance()->set_partial('content', $view);
 	}
 
 	public function action_edit($id = null)
 	{
-		is_null($id) and Response::redirect('Autores');
+		is_null($id) and \Response::redirect('Autores');
 
 		$autore = Model_Autore::find($id, 
-			array('related' => array('user'))
+			array(
+        		'where' => array('vo' => 0),
+        		'related' => array('user')
+				)
 		);
 
 		$val = Model_Autore::validate('edit');
 
 		if ($val->run())
 		{
-			$autore->nombre = Input::post('nombre');
-			$autore->user_id = Input::post('user_id');
+			$autore->nombre = \Input::post('nombre');
+			$autore->user_id = \Input::post('user_id');
 
 			if ($autore->save())
 			{
-				Session::set_flash('success', 'Autor "' . $autore->nombre . '" actualizado.');
-
-				Response::redirect('autores');
+				\Session::set_flash('success', 'Autor "' . $autore->nombre . '" actualizado.');
+				\Response::redirect('autores');
 			}
 
 			else
 			{
-				Session::set_flash('error', 'Could not update autore #' . $id);
+				\Session::set_flash('error', 'Could not update autore #' . $id);
 			}
 		}
-
 		else
 		{
-			if (Input::method() == 'POST')
+			if (\Input::method() == 'POST')
 			{
 				$autore->nombre = $val->validated('nombre');
 				$autore->user_id = $val->validated('user_id');
 
-				Session::set_flash('error', $val->error());
+				\Session::set_flash('error', $val->error());
 			}
 
-			$this->template->set_global('autore', $autore, false);
+			//$this->template->set_global('autore', $autore, false);
 		}
 
-		// Preparamos el restro de migas
-		$rastro = array(
-			'item1' => array(
-				'nombre' => 'Autores',
-				'ruta'   => 'autores'),
-			'item2' => array(
-				'nombre' => 'Editar Autor',
-				'ruta'   => ''),
+        $view = \Theme::instance()->view('private/amgadmin/autores/edit',
+			array('contents' => $autore,)
 		);
 
-		$this->template->title = "Autores";
-		$this->template->breadcrumb = $rastro;
-		$this->template->content = View::forge('autores/edit');
-
+		\Theme::instance()->set_partial('content', $view);
 	}
 
 	public function action_delete($id = null)
@@ -158,11 +140,7 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 			{
 				Session::set_flash('error', 'No se ha podido borrar el autor"'.$autore->nombre);
 			}
-			
 		}
-
-		Response::redirect('autores');
-
+		Response::redirect('admin/autores');
 	}
-
 }
