@@ -9,7 +9,11 @@
 	<div class="well nav-collapse sidebar-nav">
 		<ul class="nav nav-tabs nav-stacked main-menu">
 			<li class="nav-header hidden-tablet"><?php echo __('privado.leftmenu.gestor'); ?></li>
-			<li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+			<li>
+				<?php echo Html::anchor('admin',
+					'<i class="icon-home"></i><span class="hidden-tablet"> '.__('privado.leftmenu.dashboard').'</span>',
+					array('class' => 'ajax-link',)
+				); ?>
 			<li>
 				<?php echo Html::anchor('admin/rexistros',
 					'<i class="icon-eye-open"></i><span class="hidden-tablet"> '.__('privado.leftmenu.registros').'</span>',
