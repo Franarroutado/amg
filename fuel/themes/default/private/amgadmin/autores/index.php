@@ -53,7 +53,7 @@
 								<?php echo Html::anchor('admin/autores/edit/'.$content->id, 
 									"<i class='icon-edit icon-white'></i>", array('class'=>"btn btn-info")); ?>
 									
-								<?php echo Html::anchor('admin/autores/delete/'. '$content->id', 
+								<?php echo Html::anchor('admin/autores/delete/'. $content->id, 
 									"<i class='icon-trash icon-white'></i>", 
 									array('class'=>'btn btn-danger','name'=>'btnBorrar',							
 									)); ?>

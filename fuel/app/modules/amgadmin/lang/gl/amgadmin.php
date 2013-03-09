@@ -73,6 +73,12 @@ return array(
 			'nuevoAutor'		=> 'Novo Autor',
 			'valm_nonbre_obl'	=> 'O nome do autor é obrigatorio',
 			'valm_mensa1'		=> 'Por favor revise os seguintes mensaxes para continuar:',
+			'msg_autorNuevo'	=> 'Se ha añadido o autor :nombre ',
+			'msg_erroGuardar'	=> 'Non se ha podido gardar o autor :nombre',
+			'msg_autorActu'		=> 'Autor nombre actualizado.',
+			'msg_autorActuErr'	=> 'Non se ha podido actualizar el autor :nombre',
+			'msg_autorDelErr'	=> 'Nos se ha podido eliminar o autor :nombre',
+			'msg_autorDel'		=> 'Autor con id :id borrado',
 		),
 	),
 );

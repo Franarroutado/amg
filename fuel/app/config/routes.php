@@ -21,6 +21,7 @@
 		'admin/autores/create'			=> 'amgadmin/amgadmin/autores/create',
 		'admin/autores/view/(:any)'		=> 'amgadmin/amgadmin/autores/view/$1',
 		'admin/autores/edit/(:any)'		=> 'amgadmin/amgadmin/autores/edit/$1',
+		'admin/autores/delete/(:any)'	=> 'amgadmin/amgadmin/autores/delete/$1',
 
 		'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 );

@@ -33,9 +33,6 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 		$view = \Theme::instance()->view('private/amgadmin/autores/view', array(
 		    'contents' => $contents,
     	));
-
-		\Log::warning('I was notified of the event  on a Model of class ');
-
 		\Theme::instance()->set_partial('content', $view);
 	}
 
@@ -55,13 +52,17 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 
 				if ($autore and $autore->save())
 				{
-					\Session::set_flash('success', 'Added autore #'.$autore->id.'.');
+					\Session::set_flash('success', 
+						__('privado.autores.msg_autorNuevo', 
+							array('nombre' => $autore->nombre)));
 					\Response::redirect('admin/autores');
 				}
 
 				else
 				{
-					\Session::set_flash('error', 'Could not save autore.');
+					\Session::set_flash('error', 
+						__('privado.autores.msg_erroGuardar', 
+							array('nombre' => $autore->nombre)));
 				}
 			}
 			else
@@ -96,12 +97,13 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 			if ($autore->save())
 			{
 				\Session::set_flash('success', 'Autor "' . $autore->nombre . '" actualizado.');
-				\Response::redirect('autores');
+				\Response::redirect('admin/autores');
 			}
 
 			else
 			{
-				\Session::set_flash('error', 'Could not update autore #' . $id);
+				\Session::set_flash('error', 
+					__('privado.autores.msg_autorActuErr', array('nombre' => $autore->nombre)));
 			}
 		}
 		else
@@ -113,8 +115,6 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 
 				\Session::set_flash('error', $val->error());
 			}
-
-			//$this->template->set_global('autore', $autore, false);
 		}
 
         $view = \Theme::instance()->view('private/amgadmin/autores/edit',
@@ -131,16 +131,18 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 			// $autore->delete();
 			// Hacemo un borrado lógico
 			$autore->vo = 1;
-
 			if ($autore->save()) 
 			{
-				Session::set_flash('success', 'Autor "'.$autore->nombre.'" Eliminado');
+				\Session::set_flash('success', 
+					__('privado.autores.msg_autorDel', array('id' => $id)) );
+
 			}
 			else
 			{
-				Session::set_flash('error', 'No se ha podido borrar el autor"'.$autore->nombre);
+				\Session::set_flash('error', 
+					__('privado.autores.msg_autorDelErr', array('id' => $id)));
 			}
 		}
-		Response::redirect('admin/autores');
+		\Response::redirect('admin/autores');
 	}
 }
