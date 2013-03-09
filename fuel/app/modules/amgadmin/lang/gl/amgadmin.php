@@ -30,7 +30,6 @@ return array(
 			'msg_btnGuardar'	=> 'Gardar os cambios do rexistro',
 			'msg_logingOk'		=> 'Está logado correctamente',
 			'msg_logoutOk' 		=> 'Se ha deslogado correctamente',
-
 		),
 
 		// TopBar
@@ -43,6 +42,7 @@ return array(
 
 		// LeftMenu
 		'leftmenu' => array(
+			'dashboard'			=> 'Dashboard',
 			'gestor' 			=> 'Xestión',
 			'utilidades'		=> 'Utilidades',
 			'registros'			=> 'Rexistros',
@@ -81,6 +81,16 @@ return array(
 			'msg_autorActuErr'	=> 'Non se ha podido actualizar el autor :nombre',
 			'msg_autorDelErr'	=> 'Nos se ha podido eliminar o autor :nombre',
 			'msg_autorDel'		=> 'Autor con id :id borrado',
+		),
+
+		// Mensajes
+		'mensajes' => array(
+			'breadcrumb'		=> 'Mensaxe',
+			'nombre' 			=> 'Mensaxe',
+			'fecha_creacion' 	=> 'Data',
+			'acciones' 			=> 'Accións',
+			'msg_mensaje'		=> 'Texto do evento, producido automáticamente',
+			'msg_codMensaje'	=> 'Número mensaxe: ',
 		),
 	),
 );

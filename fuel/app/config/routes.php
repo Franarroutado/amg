@@ -24,5 +24,9 @@
 		'admin/autores/edit/(:any)'		=> 'amgadmin/amgadmin/autores/edit/$1',
 		'admin/autores/delete/(:any)'	=> 'amgadmin/amgadmin/autores/delete/$1',
 
+		'admin/mensajes'				=> 'amgadmin/amgadmin/mensajes/index',
+		'admin/mensajes/index'			=> 'amgadmin/amgadmin/mensajes/index',
+		'admin/mensajes/view/(:any)'	=> 'amgadmin/amgadmin/mensajes/view/$1',
+
 		'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 );
