@@ -22,7 +22,7 @@
 		<meta name="author" content="Muhammad Usman">
 
 		<!-- TODO se mueve del footer.php. Se debería poder inyectar el código al footer. cuando se pueda hacer mover este js al footer.php  -->
-		<?php echo \Theme::instance()->asset->js('jquery-1.7.2.min.js'); ?>
+		<?php echo \Theme::instance()->asset->js(array('jquery-1.7.2.min.js', 'jquery.validate.min.js')); ?>
 
 		<!-- The styles -->
 		<?php echo \Theme::instance()->asset->css('bootstrap-cerulean.css'); ?>
@@ -86,9 +86,22 @@
 							</li>
 						</ul>
 					</div>
+
+
+					<?php if ( \Session::get_flash('error') ) : ?>
+						<div class="alert alert-error">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<p><?php echo implode('</p><p>', e((array) \Session::get_flash('error'))); ?></p>
+						</div>
+					<?php elseif ( \Session::get_flash('success') ) : ?>
+						<div class="alert alert-success">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<p><?php echo implode('</p><p>', e((array) \Session::get_flash('success'))); ?></p>
+						</div>
+					<?php endif; ?>
 					
-	        		<?php echo $partials['content']; ?>   		
-        		
+	        		<?php echo $partials['content']; ?>   	
+					
         			<!-- content ends -->
 				</div><!--/#content.span10-->
 			</div><!--/fluid-row-->
