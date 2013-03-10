@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="box-content">
-			<form class="form-horizontal">
+			<?php echo Form::open(array('class' => 'form-horizontal')); ?>
 			  <fieldset>
 				<legend><?php echo $contents->nombre;  ?></legend>
 				<div class="control-group">
@@ -29,6 +29,7 @@
 				  <div class="controls">
 				  	<div class="input-prepend" title="<?php echo __('privado.comunes.msg_creadoPor'); ?>"data-rel="tooltip">
 				  		<span class="input uneditable-input"><?php echo $contents->user->username; ?></span>
+				  		<?php echo Form::hidden('user_id', $contents->user->id); ?>
 				  	</div>
 				  </div>
 				</div>

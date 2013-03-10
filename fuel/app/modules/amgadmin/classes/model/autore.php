@@ -32,7 +32,9 @@ class Model_Autore extends Model
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		),
-		'AMGAdmin\Observer_Miseventos',
+		'AMGAdmin\Observer_Miseventos' => array(
+			'events' => array('after_save'),
+		),
 	);
 
 	public static function validate($factory)

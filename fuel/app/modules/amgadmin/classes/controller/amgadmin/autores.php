@@ -78,14 +78,14 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 
 	public function action_edit($id = null)
 	{
-		is_null($id) and \Response::redirect('Autores');
+		is_null($id) and \Response::redirect('admin/autores');
 
-		$autore = Model_Autore::find($id, 
-			array(
-        		'where' => array('vo' => 0),
-        		'related' => array('user')
-				)
-		);
+		// If no autor is find do
+		if ( ! $autore = Model_Autore::find($id))
+		{
+			\Session::set_flash('error', __('privado.autores.msg_autorNoEnc'));
+			\Response::redirect('admin/autores');
+		}
 
 		$val = Model_Autore::validate('edit');
 
@@ -96,10 +96,9 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 
 			if ($autore->save())
 			{
-				\Session::set_flash('success', 'Autor "' . $autore->nombre . '" actualizado.');
+				\Session::set_flash('success', 'Autor ' . $autore->nombre . ' actualizado.');
 				\Response::redirect('admin/autores');
 			}
-
 			else
 			{
 				\Session::set_flash('error', 
@@ -112,6 +111,7 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 			{
 				$autore->nombre = $val->validated('nombre');
 				$autore->user_id = $val->validated('user_id');
+				$autore->modified_at = $val->validated('updated_at');
 
 				\Session::set_flash('error', $val->error());
 			}
@@ -146,3 +146,5 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 		\Response::redirect('admin/autores');
 	}
 }
+
+/* End of file */
