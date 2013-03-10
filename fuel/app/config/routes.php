@@ -28,6 +28,9 @@
 		'admin/mensajes/index'			=> 'amgadmin/amgadmin/mensajes/index',
 		'admin/mensajes/view/(:any)'	=> 'amgadmin/amgadmin/mensajes/view/$1',
 		'admin/mensajes/read/(:any)'	=> 'amgadmin/amgadmin/mensajes/read/$1',
+		'admin/mensajes/delete/(:any)'	=> 'amgadmin/amgadmin/mensajes/delete/$1',
 
 		'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 );
+
+/* End of file */

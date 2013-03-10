@@ -45,11 +45,6 @@ class Controller_AMGAdmin_Main extends \AMGAdmin\Controller_AMGAdmin
 			'contents' => $contents,
 		));
 		\Theme::instance()->set_partial('content', $view);
-
-		// Set template
-		//$this->data['template_values']['title'] .=  __('privado.comunes.page_dashboard');
-
-		//\Theme::instance()->set_partial('content', 'private/amgadmin/main/dashboard');
 	}
 }
 

@@ -99,7 +99,9 @@ return array(
 			'evento'			=> 'Evento',
 			'msg_msgMarLeido'	=> 'Mensaje #:numero  marcado como leído',
 			'msg_msgMarNoLeido' => 'Mensaje #:numero  marcado como non leído',
-			'msg_msgReadErr'	=> 'Ocurrio algún problema marcando como leído o mensaxe #:numero'
+			'msg_msgReadErr'	=> 'Ocurrio algún problema marcando como leído o mensaxe #:numero',
+			'msg_msgDel'		=> 'Mensaxe :id  borrado correctamente',
+			'msg_msgDelErr'		=> 'Non se ha podido eliminar o rexistro #:id ',
 		),
 	),
 );

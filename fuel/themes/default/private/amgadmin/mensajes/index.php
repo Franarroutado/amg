@@ -47,20 +47,19 @@
 						<tr>
 							<td>
 								<?php if( $content->leido ):  ?>
-									<span class="icon icon-color icon-envelope-open" title=".icon32 .icon-color  .icon-bullet-on "></span>
+									<?php echo Html::anchor('admin/mensajes/read/'.$content->id,
+										'<span class="icon icon-color icon-envelope-open" title=".icon32 .icon-color  .icon-bullet-on "></span>'
+									); ?>
 								<?php else: ?>
-									<span class="icon icon-color icon-envelope-closed" title=".icon32 .icon-color  .icon-bullet-on "></span>
+									<?php echo Html::anchor('admin/mensajes/read/'.$content->id,
+										'<span class="icon icon-color icon-envelope-closed" title=".icon32 .icon-color  .icon-bullet-on "></span>'
+									); ?>
 								<?php endif; ?>
 								<?php echo $content->msg; ?>
 							</td>
 							<td><?php echo $content->evento; ?></td>
 							<td class="center"><?php echo date('d/m/Y',$content->created_at);  ?></td>
 							<td class="center">
-								<?php echo Html::anchor('admin/mensajes/read/'.$content->id, 
-									"<i class='icon-check icon-white'></i>", 
-									array('class'=>"btn btn-info"
-								)); ?>
-							
 								<?php echo Html::anchor('admin/mensajes/view/'.$content->id, 
 									"<i class='icon-zoom-in icon-white'></i>", 
 									array('class'=>"btn btn-success"

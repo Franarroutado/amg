@@ -61,7 +61,7 @@ class Controller_AMGAdmin_Mensajes extends \AMGAdmin\Controller_AMGAdmin
 			else 
 			{
 				\Session::set_flash('error', 
-					__('privado.autores.msg_msgReadErr', array('id' => $id))
+					__('privado.mensajes.msg_msgReadErr', array('id' => $id))
 				);
 			}
 		}
@@ -70,23 +70,24 @@ class Controller_AMGAdmin_Mensajes extends \AMGAdmin\Controller_AMGAdmin
 
 	public function action_delete($id = null)
 	{
-		if ($autore = Model_Autore::find($id))
+		if ($mensaje = Model_Mensaje::find($id))
 		{
 			// $autore->delete();
 			// Hacemo un borrado lógico
-			$autore->vo = 1;
-			if ($autore->save()) 
+			$mensaje->vo = 1;
+			if ($mensaje->save()) 
 			{
 				\Session::set_flash('success', 
-					__('privado.autores.msg_autorDel', array('id' => $id)) );
-
+					__('privado.mensajes.msg_msgDel', array('id' => $id)) );
 			}
 			else
 			{
 				\Session::set_flash('error', 
-					__('privado.autores.msg_autorDelErr', array('id' => $id)));
+					__('privado.mensajes.msg_msgDelErr', array('id' => $id)));
 			}
 		}
-		\Response::redirect('admin/autores');
+		\Response::redirect('admin/mensajes');
 	}
 }
+
+/* End of file  */
