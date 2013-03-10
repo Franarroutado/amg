@@ -1,3 +1,10 @@
+<?php
+
+	$contents['num_mensajes'];
+	$contents['num_mensajesNoLeidos'];
+
+?>
+
 <div class="sortable row-fluid ui-sortable">
 	<a data-rel="tooltip" class="well span3 top-block" href="#" data-original-title="6 new members.">
 		<span class="icon32 icon-red icon-user"></span>
@@ -17,10 +24,18 @@
 		<div>$13320</div>
 		<span class="notification yellow">$34</span>
 	</a>
-	<a data-rel="tooltip" class="well span3 top-block" href="#" data-original-title="12 new messages.">
-		<span class="icon32 icon-color icon-envelope-closed"></span>
+	
+	<?php echo Html::anchor('admin/mensajes',
+		'<span class="icon32 icon-color icon-envelope-closed"></span>
 		<div>Messages</div>
-		<div>25</div>
-		<span class="notification red">12</span>
-	</a>
+		<div>'.$contents['num_mensajes'].'</div>'.
+		(( $contents['num_mensajesNoLeidos'] > 0 ) ? '<span class="notification red">'.$contents['num_mensajesNoLeidos'].'</span>' : '' )
+		,
+		array(
+			'class' 				=> 'well span3 top-block',
+			'data-rel'				=> 'tooltip',
+			'data-original-title' 	=> __('privado.dashboard.numMsgNuevos', array('numero' => $contents['num_mensajesNoLeidos'])),
+		)
+	); ?>
+	
 </div>

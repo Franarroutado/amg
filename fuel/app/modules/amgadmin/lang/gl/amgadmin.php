@@ -32,6 +32,11 @@ return array(
 			'msg_logoutOk' 		=> 'Se ha deslogado correctamente',
 		),
 
+		// Dashboard
+		'dashboard' => array(
+			'numMsgNuevos'		=> ':numero novos mensaxes.',
+		),
+
 		// TopBar
 		'topbar' => array(
 			'ver_site' 			=> 'ver site',
@@ -91,6 +96,10 @@ return array(
 			'acciones' 			=> 'Accións',
 			'msg_mensaje'		=> 'Texto do evento, producido automáticamente',
 			'msg_codMensaje'	=> 'Número mensaxe: ',
+			'evento'			=> 'Evento',
+			'msg_msgMarLeido'	=> 'Mensaje #:numero  marcado como leído',
+			'msg_msgMarNoLeido' => 'Mensaje #:numero  marcado como non leído',
+			'msg_msgReadErr'	=> 'Ocurrio algún problema marcando como leído o mensaxe #:numero'
 		),
 	),
 );

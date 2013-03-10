@@ -9,6 +9,8 @@ class Model_Mensaje extends Model
 	protected static $_properties = array(
 		'id',
 		'msg',
+		'leido',
+		'evento',
 		'user_id',
 		'created_at',
 		'updated_at',

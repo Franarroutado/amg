@@ -36,92 +36,36 @@ class Controller_AMGAdmin_Mensajes extends \AMGAdmin\Controller_AMGAdmin
 		\Theme::instance()->set_partial('content', $view);
 	}
 
-	public function action_create()
+	public function action_read($id = null)
 	{
-		if (\Input::method() == 'POST')
+		if ($mensaje = Model_Mensaje::find($id) )
 		{
-			$val = Model_Autore::validate('create');
-			
-			if ($val->run())
+			$mensaFlash = '';
+			if ( $mensaje->leido == 0 )
 			{
-				$autore = Model_Autore::forge(array(
-					'nombre' => \Input::post('nombre'),
-					'user_id' => \Input::post('user_id'),
-					'vo' => 0,
-				));
-
-				if ($autore and $autore->save())
-				{
-					\Session::set_flash('success', 
-						__('privado.autores.msg_autorNuevo', 
-							array('nombre' => $autore->nombre)));
-					\Response::redirect('admin/autores');
-				}
-
-				else
-				{
-					\Session::set_flash('error', 
-						__('privado.autores.msg_erroGuardar', 
-							array('nombre' => $autore->nombre)));
-				}
-			}
+				$mensaje->leido = 1;
+				$mensaFlash = 'privado.mensajes.msg_msgMarLeido';
+			} 
 			else
 			{
-				\Session::set_flash('error', $val->error());
+				$mensaje->leido = 0;
+				$mensaFlash = 'privado.mensajes.msg_msgMarNoLeido';
 			}
-		} 
 
-		$view = \Theme::instance()->view('private/amgadmin/autores/create');
-
-		\Theme::instance()->set_partial('content', $view);
-	}
-
-	public function action_edit($id = null)
-	{
-		is_null($id) and \Response::redirect('Autores');
-
-		$autore = Model_Autore::find($id, 
-			array(
-        		'where' => array('vo' => 0),
-        		'related' => array('user')
-				)
-		);
-
-		$val = Model_Autore::validate('edit');
-
-		if ($val->run())
-		{
-			$autore->nombre = \Input::post('nombre');
-			$autore->user_id = \Input::post('user_id');
-
-			if ($autore->save())
+			if ( $mensaje->save() )
 			{
-				\Session::set_flash('success', 'Autor "' . $autore->nombre . '" actualizado.');
-				\Response::redirect('admin/autores');
-			}
-
-			else
+				\Session::set_flash('success',
+					__($mensaFlash, array('numero' => $mensaje->id) )
+				);
+			} 
+			else 
 			{
 				\Session::set_flash('error', 
-					__('privado.autores.msg_autorActuErr', array('nombre' => $autore->nombre)));
+					__('privado.autores.msg_msgReadErr', array('id' => $id))
+				);
 			}
 		}
-		else
-		{
-			if (\Input::method() == 'POST')
-			{
-				$autore->nombre = $val->validated('nombre');
-				$autore->user_id = $val->validated('user_id');
-
-				\Session::set_flash('error', $val->error());
-			}
-		}
-
-        $view = \Theme::instance()->view('private/amgadmin/autores/edit',
-			array('contents' => $autore,)
-		);
-
-		\Theme::instance()->set_partial('content', $view);
+		\Response::redirect('admin/mensajes');
 	}
 
 	public function action_delete($id = null)
