@@ -39,7 +39,7 @@
 				</div>
 				<div class="form-actions">
 					<div class="input-prepend" title="<?php echo __('privado.comunes.msg_btnCancelar'); ?>"data-rel="tooltip">
-						<?php echo Html::anchor('admin/autores/index',
+						<?php echo Html::anchor('admin/mensajes/index',
 							__('privado.comunes.cancelar'),
 							array('class' => 'btn',)
 						); ?>
