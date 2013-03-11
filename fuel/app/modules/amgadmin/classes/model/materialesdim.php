@@ -2,10 +2,13 @@
 
 namespace AMGAdmin;
 
-use Orm\Model;
-
-class Model_Materialesdim extends Model
+class Model_Materialesdim extends \Orm\Model_Soft
 {
+	protected static $_soft_delete = array(
+		'deleted_field' => 'vo',
+		'mysql_timestamp' => false,
+	);
+	
 	protected static $_properties = array(
 		'id',
 		'nombre',
@@ -54,3 +57,5 @@ class Model_Materialesdim extends Model
 	}
 
 }
+
+/* End of file */

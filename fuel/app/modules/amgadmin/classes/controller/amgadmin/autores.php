@@ -6,13 +6,8 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 {
 	public function action_index()
 	{
-		// Get all autores not VOID
-		$contents = Model_Autore::find('all',
-			array(
-				'where' => array(
-					'vo' => 0,
-				),
-		));
+		// Get all autores not VOIDed (soft delete implemented in Model_Autore)
+		$contents = Model_Autore::find('all');
 
 		if(!is_array($contents))
 		{
@@ -47,7 +42,6 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 				$autore = Model_Autore::forge(array(
 					'nombre' => \Input::post('nombre'),
 					'user_id' => \Input::post('user_id'),
-					'vo' => 0,
 				));
 
 				if ($autore and $autore->save())
@@ -128,14 +122,11 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 	{
 		if ($autore = Model_Autore::find($id))
 		{
-			// $autore->delete();
-			// Hacemo un borrado lógico
-			$autore->vo = 1;
-			if ($autore->save()) 
+			// This is a built in phpfuel soft delete
+			if ($autore->delete()) 
 			{
 				\Session::set_flash('success', 
 					__('privado.autores.msg_autorDel', array('id' => $id)) );
-
 			}
 			else
 			{

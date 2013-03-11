@@ -2,10 +2,13 @@
 
 namespace AMGAdmin;
 
-use Orm\Model;
-
-class Model_Autore extends Model
+class Model_Autore extends \Orm\Model_Soft
 {
+	protected static $_soft_delete = array(
+		'deleted_field' => 'vo',
+		'mysql_timestamp' => false,
+	);
+
 	protected static $_properties = array(
 		'id',
 		'nombre',
@@ -32,8 +35,13 @@ class Model_Autore extends Model
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		),
-		'AMGAdmin\Observer_Miseventos' => array(
-			'events' => array('after_save'),
+		'AMGAdmin\Observer_Logonupdate' => array(
+			'events' => array('after_update'),
+			'texto' => 'Se ha modificado un autor',
+		),
+		'AMGAdmin\Observer_Logoninsert' => array(
+			'events' => array('after_insert'),
+			'texto' => 'Se ha creado un nuevo autor',
 		),
 	);
 
@@ -49,3 +57,5 @@ class Model_Autore extends Model
 	}
 
 }
+
+/* End of file */

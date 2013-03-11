@@ -2,10 +2,13 @@
 
 namespace AMGAdmin;
 
-use Orm\Model;
-
-class Model_Tipo extends Model
+class Model_Tipo extends \Orm\Model_Soft
 {
+	protected static $_soft_delete = array(
+		'deleted_field' => 'vo',
+		'mysql_timestamp' => false,
+	);
+
 	protected static $_properties = array(
 		'id',
 		'nombre',
@@ -37,5 +40,6 @@ class Model_Tipo extends Model
 
 		return $val;
 	}
-
 }
+
+/* End of file */

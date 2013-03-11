@@ -46,3 +46,5 @@ class Model_Mensaje extends Model
 		return $val;
 	}
 }
+
+/* End of file */
