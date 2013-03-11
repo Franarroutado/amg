@@ -78,4 +78,4 @@
 
 <?php 
 // TODO This script must be called only when edit/partituras is called
-echo \Theme::instance()->asset->js('materialControl.js'); ?>
+//echo \Theme::instance()->asset->js('materialControl.js'); ?>

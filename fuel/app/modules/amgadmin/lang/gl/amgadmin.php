@@ -68,6 +68,9 @@ return array(
 			'genero' 			=> 'Xéneros',
 			'acciones' 			=> 'Accións',
 			'crear_nuevo' 		=> 'Novo Rexistro',
+			'msg_jsErrSelect'	=> 'No hay seleccionado ningún material para continuar.',
+			'msg_jsSelecOpc'	=> 'Por favor, seleccione unha opción.',
+			'msg_jsErrUpDown'	 => 'Sólo puede seleccionar un material para subirlo o bajarlo.',
 		),
 
 		// Autores Page
@@ -103,6 +106,7 @@ return array(
 			'msg_msgReadErr'	=> 'Ocurrio algún problema marcando como leído o mensaxe #:numero',
 			'msg_msgDel'		=> 'Mensaxe :id  borrado correctamente',
 			'msg_msgDelErr'		=> 'Non se ha podido eliminar o rexistro #:id ',
+			'tip_leidoNoLeido'  => 'Faga click aquí para marca-lo mensaxe como leído, non leído',
 		),
 	),
 );

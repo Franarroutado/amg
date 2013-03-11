@@ -48,11 +48,11 @@
 							<td>
 								<?php if( $content->leido ):  ?>
 									<?php echo Html::anchor('admin/mensajes/read/'.$content->id,
-										'<span class="icon icon-color icon-envelope-open" title=".icon32 .icon-color  .icon-bullet-on "></span>'
+										'<span class="icon icon-color icon-envelope-open" title="'. __('privado.mensajes.tip_leidoNoLeido') . '"></span>'
 									); ?>
 								<?php else: ?>
 									<?php echo Html::anchor('admin/mensajes/read/'.$content->id,
-										'<span class="icon icon-color icon-envelope-closed" title=".icon32 .icon-color  .icon-bullet-on "></span>'
+										'<span class="icon icon-color icon-envelope-closed" title="'. __('privado.mensajes.tip_leidoNoLeido') . '"></span>'
 									); ?>
 								<?php endif; ?>
 								<?php echo $content->msg; ?>

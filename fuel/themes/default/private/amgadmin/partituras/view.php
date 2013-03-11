@@ -51,14 +51,7 @@
 	#boxTags .del:hover {
 		background: #ff0000;
 	}
-	select#form_lstNonSelected {
-		height: 20em; 
-		width:150px;
-	}
-	select#form_lstSelected {
-		height: 20em; 
-		width:190px;
-	}
+	
 </style>
 
 <div class="row-fluid sortable">
