@@ -20,6 +20,7 @@ public/assets/default/js/jquery-validation-1.11.0/*
 *.org
 *.zip
 *.md
+!README.md
 oil
 build.xml
 usmanhalalit-charisma-d29440e/*
