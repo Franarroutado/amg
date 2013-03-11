@@ -227,7 +227,7 @@ return array(
 	 * Paths MUST end with a directory separator (the DS constant)!
 	 */
 	'module_paths' => array(
-		APPPATH.'modules'.DS
+		APPPATH.'..'.DS.'modules'.DS
 	),
 
 	/**
