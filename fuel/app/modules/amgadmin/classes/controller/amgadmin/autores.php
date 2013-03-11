@@ -96,7 +96,7 @@ class Controller_AMGAdmin_Autores extends \AMGAdmin\Controller_AMGAdmin
 
 			if ($autore->save())
 			{
-				\Session::set_flash('success', 'Autor ' . $autore->nombre . ' actualizado.');
+				\Session::set_flash('success', 'Autor ' . $autore->nombre . '  actualizado.');
 				\Response::redirect('admin/autores');
 			}
 			else

@@ -12,7 +12,7 @@
 		<div class="box-content">
 			<form class="form-horizontal">
 			  <fieldset>
-				<legend><?php echo $contents->nombre;  ?></legend>
+				<legend><?php echo $contents->nombre; ?></legend>
 				<div class="control-group">
 				  <label class="control-label" for="typeahead"><?php echo __('privado.autores.nombre'); ?> </label>
 				  <div class="controls">

@@ -86,6 +86,7 @@ return array(
 			'msg_autorActuErr'	=> 'Non se ha podido actualizar el autor :nombre',
 			'msg_autorDelErr'	=> 'Nos se ha podido eliminar o autor :nombre',
 			'msg_autorDel'		=> 'Autor con id :id borrado',
+			'msg_autorNoEnc'	=> 'Autor non atopado',
 		),
 
 		// Mensajes
