@@ -7,7 +7,7 @@ return array(
 		'titulo_site'			=> 'Arquivo Musical Galego',
 		'intro'					=> 'Entrar',
 		'cancelar'				=> 'Cancelar',
-		'editar'				=> 'Editar'
+		'editar'				=> 'Editar',
 	),
 
 	// Valores para la sección admin

@@ -35,7 +35,7 @@ class Controller_Private extends \Controller
 		// User ins't logged in
 		if (!\Auth::check())
 		{
-			\Session::set_flash('error', 'Non sei loggato el sistema.');
+			\Session::set_flash('error', 'Non está logado no sistema.<-TODOi18n');
 			\Response::Redirect('admin/login');
 		}
 
@@ -45,12 +45,12 @@ class Controller_Private extends \Controller
 			// Check if user can access admin section
 			if(\NVUtility\NVPermission::is_allowed(array('main', $roles['main']['dashboard'])))
 			{
-				\Session::set_flash('error', 'Non puoi accedere a questa sexione');
+				\Session::set_flash('error', 'Non pode acceder nesta sesión.<-TODOi18n');
 				\Response::redirect('admin/dashboard');
 			}
 			else
 			{
-				\Session::set_flash('error', 'Non puoi entrare nell\'area riservata.');
+				\Session::set_flash('error', 'No puede entrar, sección reservada.<-18n');
 				\Response::redirect('admin/login');
 			}
 		}
