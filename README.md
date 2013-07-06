@@ -5,7 +5,7 @@
 
 ## Description
 
-Put a description here
+This version id deprecated. This project will be developed in Laravel 4. Get into my repository "arquivomusicalgalego".
 
 ## More information
 
